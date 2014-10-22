@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RESPONSE errorcode="-53" code="0" countrows="1">
+	<ROWS>
+		<ROW>
+			<ErrorCode>-53</ErrorCode>
+			<ErrorMsg>您没有权限使用此服务</ErrorMsg>
+		</ROW>
+	</ROWS>
+</RESPONSE>

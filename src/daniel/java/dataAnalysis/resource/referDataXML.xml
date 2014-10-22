@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RiskControlInfomation>
+	<rcvName>收货人姓名</rcvName>
+	<rcvFirstName>收货人_名</rcvFirstName>
+	<rcvLastName>收货人_姓</rcvLastName>
+	<rcvPhoneCountry>收货人手机国家码</rcvPhoneCountry>
+	<rcvPhone>收货人手机</rcvPhone>
+	<rcvTelCountry>收货人电话国家码</rcvTelCountry>
+	<rcvTelRegion>收货人电话区号</rcvTelRegion>
+	<rcvTel>收货人电话</rcvTel>
+	<rcvZip>收货人邮编</rcvZip>
+	<rcvCountry>收货人国家</rcvCountry>
+	<rcvProvince>收货人省份</rcvProvince>
+	<rcvCity>收货人城市</rcvCity>
+	<rcvAddress>收货人地址</rcvAddress>
+	<byrName>购货人姓名</byrName>
+	<byrFirstName>购货人_名</byrFirstName>
+	<byrLastName>购货人_姓</byrLastName>
+	<byrPhoneCountry>购货人手机国家码</byrPhoneCountry>
+	<byrPhone>购货人手机</byrPhone>
+	<byrTelCountry>购货人电话国家码</byrTelCountry>
+	<byrTelRegion>购货人电话区号</byrTelRegion>
+	<byrTel>购货人电话</byrTel>
+	<byrIdType>购货人证件类型</byrIdType>
+	<byrIdNum>购货人证件号码</byrIdNum>
+	<byrIsMchtMember>是否商户会员</byrIsMchtMember>
+	<byrRegAddress>会员注册信息中的地址</byrRegAddress>
+	<byrRegTime>会员注册时间</byrRegTime>
+	
+	
+	<!-- prdInfo begin -->
+	<!-- 每个商品信息置于<prdInfo></prdInfo>标签对里，多个商品信息并列于根节点<RiskControlInfomation>下-->
+	<prdInfo>
+		<prdName>商品名称1</prdName>
+		<prdType>商品类型1</prdType>
+		<prdQuantity>商品数量1</prdQuantity>
+		<!-- 注意此处英文为 prdunitPrice，但是程序中是按照总价处理的，所以提交的数据应为“总价”-->
+		<prdunitPrice>商品总价1</prdunitPrice>
+		<prdDetail>商品详情1</prdDetail>
+	</prdInfo>
+	<prdInfo>
+		<prdName>商品名称2</prdName>
+		<prdType>商品类型2</prdType>
+		<prdQuantity>商品数量2</prdQuantity>
+		<prdunitPrice>商品总价2</prdunitPrice>
+		<prdDetail>商品详情2</prdDetail>
+	</prdInfo>
+	<!-- prdInfo end -->
+	
+	
+	<!-- passengerInfo begin -->
+	<!-- 每个乘机人信息置于<passengerInfo></passengerInfo>标签对里，多个乘机人信息并列于根节点<RiskControlInfomation>下-->
+	<passengerInfo>
+		<passengerFullname>乘机人姓名</passengerFullname>
+		<passengerCallnumber>乘机人联系号码</passengerCallnumber>
+		<passengerMailaddress>乘机人邮件地址</passengerMailaddress>
+		<passengerCredentialstype>乘机人证件类型</passengerCredentialstype>
+		<passengerCredentialsnumber>乘机人证件号码</passengerCredentialsnumber>
+		<passengerNationality>乘机人国籍</passengerNationality>
+		<isUsally>是否常旅客</isUsally>
+		<flightNumber>航班号</flightNumber>
+		<clsofAilrlines>机票类座位等级</clsofAilrlines>
+		<isOneway>是否单程</isOneway>
+		<offState>起飞国家</offState>
+		<tagetState>目的国家</tagetState>
+		<depAirport>起飞机场</depAirport>
+		<arvAirport>降落机场</arvAirport>
+		<traAirport>中转机场</traAirport>
+		<depTime>起飞时间</depTime>
+		<differentTime>预订和起飞时间差</differentTime>
+		<passengerExt1>扩展字段1</passengerExt1>
+		<passengerExt2>扩展字段2</passengerExt2>
+	</passengerInfo>
+
+	<passengerInfo>
+		<passengerFullname>乘机人姓名2</passengerFullname>
+		<passengerCallnumber>乘机人联系号码2</passengerCallnumber>
+		<passengerMailaddress>乘机人邮件地址2</passengerMailaddress>
+		<passengerCredentialstype>乘机人证件类型2</passengerCredentialstype>
+		<passengerCredentialsnumber>乘机人证件号码2</passengerCredentialsnumber>
+		<passengerNationality>乘机人国籍2</passengerNationality>
+		<isUsally>是否常旅客2</isUsally>
+		<flightNumber>航班号2</flightNumber>
+		<clsofAilrlines>机票类座位等级2</clsofAilrlines>
+		<isOneway>是否单程2</isOneway>
+		<offState>起飞国家2</offState>
+		<tagetState>目的国家2</tagetState>
+		<depAirport>起飞机场2</depAirport>
+		<arvAirport>降落机场2</arvAirport>
+		<traAirport>中转机场2</traAirport>
+		<depTime>起飞时间2</depTime>
+		<differentTime>预订和起飞时间差2</differentTime>
+		<passengerExt1>扩展字段1</passengerExt1>
+		<passengerExt2>扩展字段2</passengerExt2>
+	</passengerInfo>
+	<!-- passengerInfo end -->
+	
+</RiskControlInfomation>

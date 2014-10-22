@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request>
+	<Transaction>
+		<TxnDetails>
+			<The3rdMan type="realtime">
+				<BillingAddress>
+					<street_address_1>Mulberry House</street_address_1>
+					<street_address_2>15 Acacia Place</street_address_2>
+					<city>Edinburgh</city>
+					<county>Lothian</county>
+					<country>826</country>
+					<postcode>EH6 7EZ</postcode>
+				</BillingAddress>
+				<DeliveryAddress>
+					<street_address_1>10 Stratford Road</street_address_1>
+					<street_address_2>Windsor</street_address_2>
+					<city>London</city>
+					<county>London</county>
+					<country>826</country>
+					<postcode>AB1 2CD</postcode>
+				</DeliveryAddress>
+				<CustomerInformation>
+					<email>accept@datacash.com</email>
+					<title>Ms</title>
+					<forename>John</forename>
+					<surname>Smith</surname>
+					<telephone>000777777</telephone>
+					<alt_telephone>0131123534</alt_telephone>
+					<ip_address>119.236.55.177</ip_address>
+					<sales_channel>1</sales_channel>
+					<customer_reference>Wang0101</customer_reference>
+					<order_number>Ref0105</order_number>
+				</CustomerInformation>
+				<AccountInformation>
+					<UserDetails>
+						<id>Matrix</id>
+						<machine_id>xc334sv</machine_id>
+					</UserDetails>
+				</AccountInformation>
+				<OrderInformation>
+					<Products count="1">
+						<Product>
+							<code>B40103</code>
+							<price>100.00</price>
+							<prod_category>Shoe0101</prod_category>
+							<prod_description>Pretty Shoes</prod_description>
+							<prod_risk>Low</prod_risk>
+							<prod_type>Clothing</prod_type>
+							<quantity>2</quantity>
+						</Product>
+					</Products>
+				</OrderInformation>
+			</The3rdMan>
+			<merchantreference>99billtestLL11</merchantreference>
+		</TxnDetails>
+		<FraudOnlyTxn>
+			<Card>
+				<bin>444433</bin>
+				<last_4_digits>1111</last_4_digits>
+				<expirydate>01/20</expirydate>
+				<pan>4444333322221111</pan>
+				<issuenumber_or_start_date>01/10</issuenumber_or_start_date>
+			</Card>
+			<acquirer>MiGs</acquirer>
+			<Response>
+				<avs_postcode_response>2</avs_postcode_response>
+				<bank_response_message>AUTHORISED</bank_response_message>
+				<auth_code>100000</auth_code>
+				<bank_response_code>00</bank_response_code>
+				<avs_address_response>2</avs_address_response>
+				<cv2_response>2</cv2_response>
+			</Response>
+			<tran_type>pre</tran_type>
+			<Secure>
+				<security_code>MDEyMzQ1Njc4OUFCQ0RFRkdISUo=</security_code>
+				<eci>06</eci>
+			</Secure>
+			<alt_tran_type>unknown</alt_tran_type>
+			<amount currency="EUR">313.37</amount>
+		</FraudOnlyTxn>
+	</Transaction>
+	<Authentication>
+		<password>????</password>
+		<client>????</client>
+	</Authentication>
+</Request>

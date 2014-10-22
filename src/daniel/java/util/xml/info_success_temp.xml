@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWS>
+	<ROW no="1"> <!--no属性为记录编号 -->
+		<INPUT> <!--输入项节点 -->
+			<gmsfhm>230602198202***</gmsfhm> <!--公民身份号码 -->
+			<xm>白若晶</xm> <!--姓名-->
+		</INPUT>
+		<OUTPUT> <!--输出项节点 -->
+			<ITEM>
+				<gmsfhm />
+				<result_gmsfhm>一致</result_gmsfhm> <!--公民身份号码的核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xm />
+				<result_xm>一致</result_xm> <!--姓名的核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xb>女性</xb> <!--性别-->
+				<result_xb />
+			</ITEM>
+			<ITEM>
+				<csrq>19820224</csrq> <!--出生日期-->
+				<result_csrq />
+			</ITEM>
+			<ITEM>
+				<whcd>大学本科（简称“大学”）</whcd> <!--文化程度-->
+				<result_whcd />
+			</ITEM>
+			<ITEM>
+				<zy>干部</zy> <!--职业-->
+				<result_zy />
+			</ITEM>
+			<ITEM>
+				<zz>北京市海淀区集体三里</zz> <!--截取之后的住址 -->
+				<result_zz />
+			</ITEM>
+			<ITEM>
+				<xp>******</xp> <!--照片(Base64编码，JPEG格式) -->
+			</ITEM>
+		</OUTPUT>
+	</ROW>
+	<ROW no="2">
+		<INPUT>
+			<gmsfhm>230602***00000</gmsfhm>
+			<xm>白若晶</xm>
+		</INPUT>
+		<OUTPUT>
+			<ITEM>
+				<errormesage>服务结果:库中无此号，请到户籍所在地进行核实</errormesage>
+				<!--库中无此号描述 -->
+			</ITEM>
+			<ITEM>
+				<errormesagecol />
+			</ITEM>
+		</OUTPUT>
+	</ROW>
+	<ROW no="3">
+		<INPUT>
+			<gmsfhm>2306021982***</gmsfhm>
+			<xm>白若晶33</xm>
+		</INPUT>
+		<OUTPUT>
+			<ITEM>
+				<gmsfhm />
+				<result_gmsfhm>一致</result_gmsfhm> <!--公民身份号码的核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xm />
+				<result_xm>不一致</result_xm> <!--姓名的核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xb />
+				<result_xb />
+			</ITEM>
+			<ITEM>
+				<csrq />
+				<result_csrq />
+			</ITEM>
+			<ITEM>
+				<whcd />
+				<result_whcd />
+			</ITEM>
+			<ITEM>
+				<zy />
+				<result_zy />
+			</ITEM>
+			<ITEM>
+				<zz />
+				<result_zz />
+			</ITEM>
+			<ITEM>
+				<xp />
+			</ITEM>
+		</OUTPUT>
+	</ROW>
+	<ROW no="4">
+		<INPUT>
+			<gmsfhm>23060219820***</gmsfhm>
+			<xm>白若晶</xm>
+		</INPUT>
+		<OUTPUT>
+			<ITEM>
+				<errormesage>业务类型属性为空</errormesage>
+			</ITEM>
+			<ITEM>
+				<errormesagecol />
+			</ITEM>
+		</OUTPUT>
+	</ROW>
+	<ROW no="5">
+		<INPUT>
+			<gmsfhm>23060219820***</gmsfhm>
+			<xm /> <!-- 姓名数据项为空 -->
+		</INPUT>
+		<OUTPUT>
+			<ITEM>
+				<errormesage>必录项缺失</errormesage> <!--缺失必录项描述 -->
+			</ITEM>
+			<ITEM>
+				<errormesagecol>姓名</errormesagecol> <!--缺失必录项的字段名称 -->
+			</ITEM>
+		</OUTPUT>
+	</ROW>
+</ROWS>
