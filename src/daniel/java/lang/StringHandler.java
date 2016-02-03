@@ -29,8 +29,6 @@ public class StringHandler {
 		String s62 = "b";
 		String str6 = s61 + s62;
 		System.out.println(str6 == "ab"); 
-
-
 		
 	}
 }

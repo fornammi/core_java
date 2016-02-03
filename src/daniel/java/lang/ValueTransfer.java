@@ -16,11 +16,23 @@ public class ValueTransfer {
 	}
 	
 	public static void main(String[] args) {
-		String s1 = "1";
+		/*String s1 = "1";
 		String s2 = "2";
 		System.out.println("main：swap前s1 is "+s1+" || s2 is "+s2);
 		swapString(s1, s2);
 		System.out.println("main：swap后s1 is "+s1+" || s2 is "+s2);
+		System.out.println("====================================");*/
+		String s3 = new String("3");
+		String s4 = new String("4");
+		System.out.println("main：swap前s3 is "+s3+" || s4 is "+s4);
+		swapString(s3, s4);
+		System.out.println("main：swap后s3 is "+s3+" || s4 is "+s4);
+		System.out.println("====================================");
+		String s33 = s3+s4;
+		String s44 = s4+s3;;
+		System.out.println("main：swap前s33 is "+s33+" || s44 is "+s44);
+		swapString(s33, s44);
+		System.out.println("main：swap后s33 is "+s33+" || s44 is "+s44);
 		System.out.println("====================================");
 		Integer i1 = new Integer(1);
 		Integer i2 = new Integer(2);
