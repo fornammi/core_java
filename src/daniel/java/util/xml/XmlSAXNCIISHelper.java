@@ -17,6 +17,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import daniel.java.util.xml.model.CreditInfoPI;
+
 /**
  * @author daniel.fang
  *
@@ -106,6 +108,12 @@ public class XmlSAXNCIISHelper extends DefaultHandler {
 			}else if("xp".equalsIgnoreCase(preTag)){
 				//需要使用云存储
 				creditInfo.setXp(content);
+			}else if("ssssxq".equalsIgnoreCase(preTag)){//2016.2.16新增"所属省市县区"
+				creditInfo.setSsssxq(content);
+			}else if("dn".equalsIgnoreCase(preTag)){//2016.2.16新增"失信被执行人"节点
+				creditInfo.setRtdn(content);
+			}else if("des".equalsIgnoreCase(preTag)){//2016.2.16新增"失信被执行人"节点
+				creditInfo.setRtdes(content);
 			}
 		}
 	}
@@ -134,9 +142,11 @@ public class XmlSAXNCIISHelper extends DefaultHandler {
 		 * XML文件解析：分别解析公安接口返回的正常和异常结果
 		 */
 		//InputStream input = new FileInputStream(new File("D:\\devTools\\myEcspace\\CoreJava\\src\\daniel\\java\\util\\xml\\info_error.xml"));
-		InputStream inputXML = new FileInputStream(new File("D:\\devTools\\myEcspace\\CoreJava\\src\\daniel\\java\\util\\xml\\info_success.xml"));
+		//InputStream inputXML = new FileInputStream(new File("D:\\devTools\\myEcspace\\CoreJava\\src\\daniel\\java\\util\\xml\\info_success.xml"));
 		//InputStream inputXML = new FileInputStream(new File("D:\\devTools\\myEcspace\\CoreJava\\src\\daniel\\java\\util\\xml\\info_success_temp.xml"));
+		InputStream inputXML = new FileInputStream(new File("D:\\devTools\\myEcspace\\CoreJava\\src\\daniel\\java\\util\\xml\\testxml\\info_success_V2.2-7825.xml"));
 		List<CreditInfoPI> infoList = sax.parseCreditInfoXml(inputXML);
+		System.out.println("----------nammi:xml file to java bean----------");
 		for(CreditInfoPI creditInfo : infoList){
 			System.out.println(creditInfo.toString());
 		}
@@ -151,11 +161,10 @@ public class XmlSAXNCIISHelper extends DefaultHandler {
 		JSONArray jsonArray = JSONArray.fromObject(infoList); 
 		System.out.println(jsonArray.toString());
 		
-		
-		System.out.println("----------nammi:infoList2----------");
 		/**
-		 * XML形式字符串解析：
+		 * test:XML形式字符串解析
 		 */
+		System.out.println("----------nammi:infoList2----------");
 		String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <RESPONSE errorcode=\"-53\" code=\"0\" countrows=\"1\"> <ROWS> <ROW> <ErrorCode>-53</ErrorCode><ErrorMsg>您没有权限使用此服务</ErrorMsg></ROW></ROWS></RESPONSE>";
 		InputStream inputStr = new ByteArrayInputStream(xmlStr.getBytes());
 		List<CreditInfoPI> infoList2 = sax.parseCreditInfoXml(inputStr);

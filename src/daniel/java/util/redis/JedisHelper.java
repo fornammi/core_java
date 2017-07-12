@@ -7,7 +7,7 @@ import java.util.Set;
 
 import redis.clients.jedis.Jedis;
 
-public class RedisHelper {
+public class JedisHelper {
 	/**
 	 * 缓存key前缀
 	 */
@@ -19,28 +19,31 @@ public class RedisHelper {
 	public final static String CACHE_KEY_RATEDATA_MERCHANT_AMOUNT = "RATEDATA.M.AMT."; // 商户下的交易额
 	public final static String CACHE_KEY_OPENED_MERCHANT = "OPENED.MERCHANT"; // 已开通快易花的商户
 	
+	public final static String CACHE_KEY_MEMBER_INFO = "MamMemberInfo."; //memberInfo
 	
 	
 	public static void main(String[] args) {
+		//dev
 		Jedis jedis = new Jedis("192.168.15.82", 6379);
 		//10012195250
 		//10012077336
-		String cacheKey = CACHE_KEY_RATEDATA_MERCHANT_TXN + "10012077336";
+//		String cacheKey = CACHE_KEY_RATEDATA_MERCHANT_TXN + "10012077336";
+		String cacheKey = CACHE_KEY_MEMBER_INFO + "10012245533";
 		boolean isExists = jedis.exists(cacheKey);
 		System.out.println(isExists);
 		//key-String
 		String val = jedis.get(cacheKey);
+		System.out.println(val);
 		
 		//key-list
-		byte[] bytes = jedis.get(cacheKey.getBytes());
+		/*byte[] bytes = jedis.get(cacheKey.getBytes());
 		Object obj = SerializationHelper.deserialize(bytes);
 		if(obj!=null && (obj instanceof List<?>)){
 			List<CacheTxn> mtxnList = (List<CacheTxn>)obj;
 			for(CacheTxn data : mtxnList){
 				System.out.println(data);
 			}
-		}
-		
+		}*/
 		
 		
 		/*Set keys = jedis.keys(cacheKey);

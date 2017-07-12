@@ -1,4 +1,4 @@
-package daniel.java.util.xml;
+package daniel.java.util.xml.model;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -28,6 +28,11 @@ public class CreditInfoPI implements Serializable{
     private String errorMsg;
     private java.util.Date infoDate;
     private java.util.Date createTime;
+    //新接口
+    private String ssssxq;
+    private String rtdn;
+    private String rtdes;
+    
     private String orderField;
 
     public Long getId( ){
@@ -156,7 +161,25 @@ public class CreditInfoPI implements Serializable{
 		    this.createTime=createTime;
     }
 
-    public String getOrderField(){
+    public String getSsssxq() {
+		return ssssxq;
+	}
+	public void setSsssxq(String ssssxq) {
+		this.ssssxq = ssssxq;
+	}
+	public String getRtdn() {
+		return rtdn;
+	}
+	public void setRtdn(String rtdn) {
+		this.rtdn = rtdn;
+	}
+	public String getRtdes() {
+		return rtdes;
+	}
+	public void setRtdes(String rtdes) {
+		this.rtdes = rtdes;
+	}
+	public String getOrderField(){
 		    return orderField;
     }
     public void setOrderField(String orderField){
@@ -180,6 +203,9 @@ public class CreditInfoPI implements Serializable{
 		map.put("zy", this.zy);
 		map.put("zz", this.zz);
 		map.put("xp", this.xp);
+		map.put("ssssxq", this.ssssxq);
+		map.put("rtdn", this.rtdn);
+		map.put("rtdes", this.rtdes);
 		map.put("errorCode", this.errorCode);
 		map.put("errorMsg", this.errorMsg);
 		map.put("infoDate", this.infoDate);

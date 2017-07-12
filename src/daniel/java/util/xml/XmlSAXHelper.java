@@ -13,6 +13,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import daniel.java.util.xml.model.Book;
+import daniel.java.util.xml.model.Phone;
+
 /**
  * 此处可以扩展为泛型接口
  * 解析XML的前提：清楚地知道xml的结构特点
@@ -23,7 +26,11 @@ public class XmlSAXHelper extends DefaultHandler {
 	
 	private List<Book> books = null;
 	private Book book = null;
-	//作用是记录解析时的上一个节点名称  
+	//第二种对象
+	private List<Phone> phones = null;
+	private Phone phone = null;
+	
+	//作用是记录解析时的上一个节点名称
 	private String preTag = null;
 	
 	
@@ -33,6 +40,8 @@ public class XmlSAXHelper extends DefaultHandler {
     @Override
 	public void startDocument() throws SAXException {
     	books = new ArrayList<Book>();
+    	//第二种对象
+    	phones = new ArrayList<Phone>();
 	}
     
     /**
@@ -41,9 +50,13 @@ public class XmlSAXHelper extends DefaultHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
+		//通过节点名，判断对象类型
 		if("book".equals(qName)){
-			 book = new Book();
-			 book.setId(Integer.parseInt(attributes.getValue(0)));
+			book = new Book();
+			book.setId(Integer.parseInt(attributes.getValue(0)));
+		}else if("phone".equals(qName)){
+			phone = new Phone();
+			phone.setId(Integer.parseInt(attributes.getValue(0)));
 		}
 		preTag = qName;//将正在解析的节点名称赋给preTag
 	}
@@ -57,6 +70,9 @@ public class XmlSAXHelper extends DefaultHandler {
 		if(book!=null && "book".equals(qName)){
 			books.add(book);
 			book = null;
+		}else if(phone!=null && "phone".equals(qName)){
+			phones.add(phone);
+			phone = null;
 		}
 		preTag = null;
 		/**
@@ -77,10 +93,25 @@ public class XmlSAXHelper extends DefaultHandler {
 			throws SAXException {
 		if(preTag != null){
 			String content = new String(ch, start, length);
+			//设置book对象的各个属性
+			/*
+			 * TODO：此处无法判断多个标签名，导致无法解析xml里的多个java bean
+			 * 建议：根节点ROW里的所有带具体值的节点名，都作为java bean的属性名
+			 */
 			if("name".equals(preTag)){
-				book.setName(content);
+				if(book!=null){
+					book.setName(content);
+				}
+				if(phone!=null){
+					phone.setName(content);
+				}
 			}else if("price".equals(preTag)){
-				book.setPrice(Float.parseFloat(content));
+				if(book!=null){
+					book.setPrice(Float.parseFloat(content));
+				}
+				if(phone!=null){
+					phone.setPrice(Float.parseFloat(content));
+				}
 			}
 		}
 	}
@@ -94,8 +125,20 @@ public class XmlSAXHelper extends DefaultHandler {
 		return handler.getBooks();
 	}
 	
+	public List<Phone> parsePhoneXml(InputStream xmlStream) throws Exception{
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+		SAXParser parser = factory.newSAXParser();
+		XmlSAXHelper handler = new XmlSAXHelper();
+		parser.parse(xmlStream, handler);
+		return handler.getPhones();
+	}
+	
 	public List<Book> getBooks(){
 		return books;
+	}
+	
+	public List<Phone> getPhones(){
+		return phones;
 	}
 
 	/**
@@ -109,6 +152,11 @@ public class XmlSAXHelper extends DefaultHandler {
 		List<Book> books = sax.parseBookXml(input);
 		for(Book book : books){
 			System.out.println(book.toString());
+		}
+		
+		List<Phone> phones = sax.parsePhoneXml(input);
+		for(Phone phone : phones){
+			System.out.println(phone.toString());
 		}
     }
 }

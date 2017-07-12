@@ -103,6 +103,36 @@ public class ListHelper {
 		return resultMap;
 	}
 	
+	/**
+	 * 集合运算
+	 */
+	public static void listOpe(){
+		List list1 = new ArrayList();
+		list1.add("1111");
+		list1.add("2222");
+		list1.add("3333");
+
+		List list2 = new ArrayList();
+		list2.add("3333");
+		list2.add("4444");
+		list2.add("5555");
+
+		// 并集
+		//list1.addAll(list2);
+		// 交集
+		list1.retainAll(list2);
+		// 差集
+		//list1.removeAll(list2);
+		// 无重复并集
+		//list2.removeAll(list1);
+		//list1.addAll(list2);
+
+		Iterator<String> it = list1.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
+	}
+	
 	public static void main(String[] args) {
 		List intList = new ArrayList();
 		/*
@@ -115,7 +145,7 @@ public class ListHelper {
 		splitList(intList, 10);*/
 		
 		//统计List中值相等元素的个数
-		for(int i=0; i<10; i++){
+		/*for(int i=0; i<10; i++){
 			int tmp = new Random().nextInt(5);
 			System.out.println(tmp);
 			intList.add(tmp);
@@ -126,8 +156,7 @@ public class ListHelper {
 		while(it.hasNext()){
 			Map.Entry entry = (Map.Entry)it.next();
 			System.out.println(entry.getKey()+"="+entry.getValue());
-		}
-		
+		}*/
 		
 		/*Map<Long,Long> cntMap = new HashMap<Long,Long>();
 		cntMap.put(1L,1L);
@@ -137,5 +166,7 @@ public class ListHelper {
 		List<Long> cntList = Arrays.asList(cntArray);
 		Collections.sort(cntList);
 		System.out.println(cntList.get(0));*/
+		
+		listOpe();
 	}
 }

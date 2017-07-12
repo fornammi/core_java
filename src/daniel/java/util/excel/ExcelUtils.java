@@ -323,7 +323,7 @@ public class ExcelUtils {
 	 * main && note
 	 * @param args
 	 */
-	public void geneCtlFile(){
+	public void geneMainCtlFile(){
 		//每增加一个批次，计数器加1
 		int count = 0;
 		String filePath = "d:\\daniel.fang\\桌面\\央行合规—数据修复\\央行合规—数据修复_RM_";
@@ -332,11 +332,13 @@ public class ExcelUtils {
 			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-企业-待确认.csv";
 			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-个人-待确认.csv";
 			
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-企业-已排除.csv";
-			String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-个人-已排除.csv";
+			String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-跨境导入版-已排除.csv";
+			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-企业-已排除.csv";
+			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-个人-已排除.csv";
 			File file = new File(fileName);
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					new FileInputStream(file), "GBK"));
+			//编码问题原因：1)导入数据报超长错误，但是实际数据长度合理
+			BufferedReader rd = new BufferedReader(new InputStreamReader(new FileInputStream(file), "GBK"));
+			//BufferedReader rd = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
 			CSVReader reader = new CSVReader(rd);
 			//先读出第一行数据（标题）,while从第二行开始处理
 			reader.readNext();
@@ -351,7 +353,8 @@ public class ExcelUtils {
 			finalBuf.append(head);
 			String noteHead = genCtlHead("note");
 			noteBuf.append(noteHead);
-			String fileType = "-个人-已排除_";
+			String fileType = "企业-已排除_";
+			//String fileType = "个人-已排除_";
 			while ((tt = reader.readNext()) != null) {
 				String body = genCtlBody(tt, "main");
 				finalBuf.append(body);
@@ -374,8 +377,8 @@ public class ExcelUtils {
 				}
 			}
 			System.out.println("count : "+count);
-			write2File(filePath+"main_"+count+".ctl", finalBuf.toString());
-			write2File(filePath+"note_"+count+".ctl", noteBuf.toString());
+			write2File(filePath+"main_"+fileType+count+".ctl", finalBuf.toString());
+			write2File(filePath+"note_"+fileType+count+".ctl", noteBuf.toString());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -1063,16 +1066,16 @@ public class ExcelUtils {
 	public static void main(String[] args) {
 		//ExcelUtils.readExcel();
 		//main&note
-		new ExcelUtils().geneCtlFile();
+		new ExcelUtils().geneMainCtlFile();
 		//txn or txn_all_columns
 		//new ExcelUtils().geneTxnCtlFile();
 		
 		/**
 		 * 生成主体编号
 		 */
-		/*String fileName = "d:\\daniel.fang\\桌面\\main7.txt";
+		/*String fileName = "d:\\daniel.fang\\桌面\\main4000.txt";
 		StringBuffer buf = new StringBuffer();
-		for(int i=0; i<100000;i++){//40万：java.lang.OutOfMemoryError: Java heap space
+		for(int i=0; i<4000;i++){//40万：java.lang.OutOfMemoryError: Java heap space
 			String no = UUID.randomUUID().toString().substring(4);
 			buf.append(no+"\r\n");
 		}

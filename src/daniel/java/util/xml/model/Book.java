@@ -1,4 +1,4 @@
-package daniel.java.util.xml;
+package daniel.java.util.xml.model;
 
 public class Book {
 	private int id;

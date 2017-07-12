@@ -1,4 +1,4 @@
-package daniel.java.corejava.util.concurrent.pc;
+package daniel.java.corejava.util.concurrent.pconsumer;
 
 public class Apple {
 	private String appleName;

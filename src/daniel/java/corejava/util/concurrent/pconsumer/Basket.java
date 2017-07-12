@@ -1,4 +1,4 @@
-package daniel.java.corejava.util.concurrent.pc;
+package daniel.java.corejava.util.concurrent.pconsumer;
 
 public interface Basket {
 	public void add(Apple apple) throws Exception;

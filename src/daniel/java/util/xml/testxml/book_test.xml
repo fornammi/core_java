@@ -7,5 +7,13 @@
     <book id="15">  
         <name>Spring in Action</name>  
         <price>39.0</price>  
-    </book>  
+    </book>
+	<phone id="21">
+		<name>iphone 6</name>
+		<price>4888</price>
+	</phone>  
+	<phone id="22">
+		<name>iphone 6s</name>
+		<price>5888</price>
+	</phone>  
 </books>
