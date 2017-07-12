@@ -1,0 +1,22 @@
+<RISKINFOLIST>
+	<RiskControlInfomation>
+		<tbmName>花春</tbmName>
+		<tbmTel>15160056281</tbmTel>
+		<tbmPhone>15160056281</tbmPhone>
+		<tbmEmail>406749441@qq.com</tbmEmail>
+		<tbmIdType>00</tbmIdType>
+		<tbmIdNum>130404199103100619</tbmIdNum>
+		<tbmNantionality>CN</tbmNantionality>
+		<tbmIsFrequenter>1</tbmIsFrequenter>
+		<tbFlight>MF8501</tbFlight>
+		<tbQuantity>1</tbQuantity>
+		<tbTotPrice>710.00</tbTotPrice>
+		<tbIsSingleTrip>Y</tbIsSingleTrip>
+		<tbOffState>CN</tbOffState>
+		<tbTagetState>CN</tbTagetState>
+		<tbDepTime>20170410070000</tbDepTime>
+		<tbDepAirport>XMN</tbDepAirport>
+		<tbArrAirport>SHA</tbArrAirport>
+		<tbTraAirport />
+	</RiskControlInfomation>
+</RISKINFOLIST>

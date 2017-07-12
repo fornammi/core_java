@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWS>
+	<ROW no="1">
+		<INPUT><!-- 输入节点 -->
+			<gmsfhm>360425195********</gmsfhm>
+			<xm>王海金</xm>
+		</INPUT>
+		<OUTPUT><!-- 输出节点 -->
+			<ITEM>
+				<gmsfhm></gmsfhm>
+				<result_gmsfhm>一致</result_gmsfhm><!-- 公民身份证号码核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xm></xm>
+				<result_xm>一致</result_xm><!-- 姓名核查结果 -->
+			</ITEM>
+			<ITEM>
+				<xb>女性</xb><!-- 性别 -->
+				<result_xb></result_xb>
+			</ITEM>
+			<ITEM>
+				<csrq>19580105</csrq><!-- 出生日期 -->
+				<result_csrq></result_csrq>
+			</ITEM>
+			<ITEM>
+				<whcd>初中</whcd><!-- 文化程度 -->
+				<result_whcd></result_whcd>
+			</ITEM>
+			<ITEM>
+				<zz>三角乡建华村</zz><!-- 住址 -->
+				<result_zz></result_zz>
+			</ITEM>
+			<ITEM>
+				<ssssxq>江西省九江市永修县</ssssxq><!-- 所属省市县（区） -->
+				<result_ssssxq></result_ssssxq>
+			</ITEM>
+			<ITEM>
+				<xp> ************ </xp><!-- 水印照片base64码 -->
+			</ITEM>
+		</OUTPUT>
+		<RTS>
+			<RT>
+				<DN>WS失信被执行人</DN><!-- 失信被执行人查询结果 -->
+				<DES>存在于失信被执行人数据库中</DES>
+			</RT>
+		</RTS>
+	</ROW>
+</ROWS>
