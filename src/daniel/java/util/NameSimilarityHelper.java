@@ -1,11 +1,5 @@
 package daniel.java.util;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import org.apache.commons.lang.StringUtils;
-import org.omg.CosNaming.NameHelper;
-
 public class NameSimilarityHelper {
 	
 	/*public static int maxNameSimilarity(String single, String multiple)
