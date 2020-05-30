@@ -51,7 +51,7 @@
 					</Products>
 				</OrderInformation>
 			</The3rdMan>
-			<merchantreference>99billtestLL11</merchantreference>
+			<merchantreference>testLL11</merchantreference>
 		</TxnDetails>
 		<FraudOnlyTxn>
 			<Card>

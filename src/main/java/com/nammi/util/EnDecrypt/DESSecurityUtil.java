@@ -23,8 +23,6 @@ import sun.misc.BASE64Encoder;
 
 public final class DESSecurityUtil {
 
-	private static String keyString = "99billJinCom";
-	
 	private final static String ENCODING="UTF8";
 
 	static Key key ;
@@ -33,7 +31,6 @@ public final class DESSecurityUtil {
 	/**
 	 * 根据参数生成KEY
 	 * 
-	 * @param strKey
 	 */
 	private static void getKey() {
 		if(key == null){
@@ -69,7 +66,6 @@ public final class DESSecurityUtil {
 	/**
 	 * 加密String明文输入,String密文输出
 	 * 
-	 * @param strMing
 	 * @return
 	 */
 	public static String encrypt(final String encryptData) {
@@ -95,7 +91,6 @@ public final class DESSecurityUtil {
 	/**
 	 * 解密 以String密文输入,String明文输出
 	 * 
-	 * @param strMi
 	 * @return
 	 */
 	public static String decrypt(final String decryptData) {

@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,7 +22,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.codehaus.jackson.map.ObjectMapper;
 
 
 public class HttpClientUtils {
@@ -146,115 +143,11 @@ public class HttpClientUtils {
 	
 	
 	public static String convert2Json(Object object) throws Exception {
-		ObjectMapper objectMapper = new ObjectMapper();
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		objectMapper.writeValue(byteArrayOutputStream, object);
-		return byteArrayOutputStream.toString("UTF-8");
+	    return JSONObject.toJSONString(object);
 	}
 
-	public static Map<String, Object> jsonToMap(String jsonString)
-			throws Exception {
-		ObjectMapper objectMapper = new ObjectMapper();
-		Map resultMap = (Map) objectMapper.readValue(jsonString, Map.class);
-		return resultMap;
-	}
-	
-	
-	public static void main(String[] args) {
-		//>>>1.通知商城
-		/*Map<String, String> conMap = new HashMap<String, String>();
-		String out_trade_no = "201608301303323351000020957";
-		String sign = MD5Utils.string2MD5(out_trade_no+""+process_status+""+client_secret);
-		conMap.put("out_trade_no", out_trade_no);
-		conMap.put("process_status", process_status);
-		conMap.put("sign", sign);
-		JSONObject jsonObj = JSONObject.fromObject(conMap);
-		try {
-			System.out.println("jsonStr: "+jsonObj.toString());
-			HttpClientUtils.httpPostWithJson(URL_DEV, jsonObj);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		//>>>2.测试:本地http服务
-		String localUrl = "http://127.0.0.1:8080/rm-cams/outerReqRiskCode";
-		Map<String, String> conMap2 = new HashMap<String, String>();
-		conMap2.put("objName", "memberCode");
-		conMap2.put("objValue", "10011511559");//conMap不能用10011511559l
-		conMap2.put("riskCode", "AC");
-		conMap2.put("reasonCode", "UACD");
-		conMap2.put("appName", "localTest");
-		conMap2.put("orgCode", "rm");
-		conMap2.put("userCode", "nammi");
-		conMap2.put("userCode", "nammi");
-		JSONObject jsonObj2 = JSONObject.fromObject(conMap);
-		try {
-			String result = HttpClientUtils.httpPostWithJson(localUrl, jsonObj2);
-			System.out.println("RiskCode result is: "+result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		//3.测试：网金止登录
-		String netUrl = "http://96.7.0.22:80/v1/account/status/freeze";
-		Map<String, String> conMap3 = new HashMap<String, String>();
-		conMap3.put("pwid", "");*/
-		
-		//4.CFCA:ods查询接口
-		String odsUrl_dev="http://192.168.15.157:8081/ods-ws/ws/common/odsQuery";
-		Map<String, Object> odsMap = new HashMap<String, Object>();
-		odsMap.put("interfaceName", "GetPersonnelTradeDetailInterface");
-		odsMap.put("currentPage", 1L);
-		odsMap.put("pageSize", 100L);
-		Map<String, Object> odsMap1 = new HashMap<String, Object>();
-		odsMap1.put("memberCode", 10012764991L);
-		odsMap1.put("startTime", "2015-10-28 00:00:00");
-		odsMap1.put("expireTime", "2016-11-28 00:00:00");
-		odsMap.put("params", odsMap1);
-		JSONObject odsJsonObj = JSONObject.fromObject(odsMap);
-		System.out.println("RequestData is："+odsJsonObj.toString());
-		try {
-			String odsResult = HttpClientUtils.doHttpPost(odsUrl_dev, odsJsonObj);
-			System.out.println("odsResult："+odsResult);
-			//解析result
-			List<Map<String,Object>> returnList = new HttpClientUtils().handleJson(odsResult);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 解析
-	 * @param jsonStr
-	 */
-	public static List<Map<String,Object>> handleJson(String jsonStr) throws Exception{
-		JSONObject jsonObject = JSONObject.fromObject(jsonStr);
-		Map<String, Object> responseMap = HttpClientUtils.jsonToMap(jsonStr);
-		System.out.println("result exists："+responseMap.containsKey("result"));
-		List<Map<String,Object>> returnList = new ArrayList<Map<String,Object>>();
-		if(responseMap!=null && responseMap.size()>0 && responseMap.containsKey("result")){
-			JSONObject result = jsonObject.getJSONObject("result");
-			if(!(result==null || result.isNullObject())){
-				JSONArray resultMap = result.getJSONArray("resultMap");
-				if(!(resultMap==null || resultMap.isEmpty())){
-					List resultList = (List)JSONArray.toCollection(resultMap);
-					if(resultList!=null && resultList.size()>0){
-						for(int i=0; i<resultList.size(); i++){
-							System.out.println(">>>>>"+i+"<<<<<");
-							JSONObject tempJson = JSONObject.fromObject(resultList.get(i));
-							Map<String, Object> tempMap = HttpClientUtils.jsonToMap(tempJson.toString());
-							Set<String> keys = tempMap.keySet();
-							for(Iterator it = keys.iterator();it.hasNext();){
-								String s = (String)it.next();
-								System.out.println("key="+s+"|value="+tempMap.get(s));
-							}
-						}
-						
-					}
-				}
-			}
-		}
-		return returnList;
+	public static Map<String, Object> jsonToMap(String jsonString) throws Exception {
+		return  JSONObject.parseObject(jsonString, Map.class);
 	}
 	
 }

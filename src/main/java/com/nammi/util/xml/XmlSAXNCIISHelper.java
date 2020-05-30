@@ -10,6 +10,7 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import com.nammi.entity.CreditInfoPI;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -17,7 +18,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import daniel.java.util.xml.model.CreditInfoPI;
 
 /**
  * @author daniel.fang

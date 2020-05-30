@@ -4,20 +4,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
+import com.nammi.util.file.FileUtils;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -28,8 +20,6 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.opencsv.CSVReader;
-
-import daniel.java.util.file.FileUtils;
 
 public class ExcelUtils {
 	
@@ -197,8 +187,7 @@ public class ExcelUtils {
 	
 	/**
 	 * csv处理excel,生成多个sql文件
-	 * @param args
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void excel2cvs() throws IOException{
 		
@@ -321,20 +310,14 @@ public class ExcelUtils {
 	 * 反洗钱合规：根据csv生成ctl文件
 	 * 注：excel文件的直接读取，数据量太大容易报错（堆内存溢出）
 	 * main && note
-	 * @param args
 	 */
 	public void geneMainCtlFile(){
 		//每增加一个批次，计数器加1
 		int count = 0;
 		String filePath = "d:\\daniel.fang\\桌面\\央行合规—数据修复\\央行合规—数据修复_RM_";
 		try {
-			//String fileName = "d:\\daniel.fang\\桌面\\main.csv";
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-企业-待确认.csv";
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.1.19\\main-个人-待确认.csv";
-			
-			String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-跨境导入版-已排除.csv";
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-企业-已排除.csv";
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-个人-已排除.csv";
+
+			String fileName = "D:\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2016.3.28\\main-跨境导入版-已排除.csv";
 			File file = new File(fileName);
 			//编码问题原因：1)导入数据报超长错误，但是实际数据长度合理
 			BufferedReader rd = new BufferedReader(new InputStreamReader(new FileInputStream(file), "GBK"));
@@ -393,15 +376,8 @@ public class ExcelUtils {
 		int count = 0;
 		String filePath = "d:\\daniel.fang\\桌面\\央行合规—数据修复\\央行合规—数据修复_RM_";
 		try {
-			//TODO 1
-			//String fileName = "d:\\daniel.fang\\桌面\\txn.csv";
-			String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\央行合规—数据修复_RM_2015.7.12\\txn.csv";
-			//main_all_columns
-			//String fileName = "D:\\99bill\\RM运维\\反洗钱\\反洗钱数据修复\\数据备份\\main17.csv";
-			//txn_all_columns
-			//String fileName = "d:\\daniel.fang\\桌面\\2015.3.25反洗钱数据修复\\tppaml.csv";
+			String fileName = "d:\\daniel.fang\\桌面\\txn.csv";
 			File file = new File(fileName);
-			//TODO 2
 			BufferedReader rd = new BufferedReader(new InputStreamReader(new FileInputStream(file), "GBK"));
 			//TODO DM导出来的csv是utf-8编码,导致GBK读取时候会报错：java.lang.ArrayIndexOutOfBoundsException: 36
 			//BufferedReader rd = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));

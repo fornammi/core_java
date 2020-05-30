@@ -162,7 +162,7 @@ public class JdomXMLUtils {
 		
 		//1.1.1层级关系
 		txnDetailsEl.addContent(the3rdManEl);
-		txnDetailsEl.addContent(new Element("merchantreference").setText("99billtestLL08"));
+		txnDetailsEl.addContent(new Element("merchantreference").setText("testLL08"));
 		
 		//1.1.2
 		Element fraudOnlyTxnEl = new Element("FraudOnlyTxn");
@@ -311,7 +311,7 @@ public class JdomXMLUtils {
 		
 		//1.1.1层级关系
 		txnDetailsEl.addContent(the3rdManEl);
-		txnDetailsEl.addContent(new Element("merchantreference").setText("99billtestLL11"));
+		txnDetailsEl.addContent(new Element("merchantreference").setText("testLL11"));
 		
 		//1.1.2
 		Element fraudOnlyTxnEl = new Element("FraudOnlyTxn");
