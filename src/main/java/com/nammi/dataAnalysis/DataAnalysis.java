@@ -23,9 +23,6 @@ public class DataAnalysis {
 		System.out.println(System.getProperty("java.endorsed.dirs"));
 		/*RcsReferDataXMLParseImpl parse = new RcsReferDataXMLParseImpl();
 		try {
-			String str = FileUtils.readFileToString(new java.io.File("D:\\devTools\\myEcspace\\rm-rmca\\src\\main\\java\\com\\bill99\\rmca\\orm\\manager\\impl\\referData.xml"),"UTF-8");
-			//String str = FileUtils.readFileToString(new java.io.File("D:\\devTools\\myEcspace\\rm-rmca\\src\\main\\java\\com\\bill99\\rmca\\orm\\manager\\impl\\referDataXML.xml"),"UTF-8");
-			//String str = FileUtils.readFileToString(new java.io.File("D:\\devTools\\myEcspace\\rm-rmca\\src\\main\\resources\\referData.xml"),"UTF-8");
 			RcsReferXMLDataDto dto = parse.referDataParse(str);
 			
 			//	

@@ -204,8 +204,4 @@ public class AddressHelper {
 		System.out.println("县："+countyStr);
 	}
 	
-	public static void main(String[] args) {
-		String testStr = "快钱kuaiqian支zhi付fuqingsuan清算";//预期18+21=39
-		countByteOfStringInOracle(testStr);
-	}
 }

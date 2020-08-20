@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 获取对象里值为空（包括null、空白等）的属性集合
@@ -54,6 +54,7 @@ public class BeanAnalysis {
 						System.out.println("val = " + val); 
 						System.out.println("----- fieldList print-----");
 					}
+
 				}
 			}
 		} /*catch (IntrospectionException e) {
@@ -71,13 +72,5 @@ public class BeanAnalysis {
 		return propList.toArray(new String[propList.size()]);
 	}
 	
-	public static void main(String[] args) {
-		
-		RcsReferenceDataDto dto = new RcsReferenceDataDto();
-		String[] proArr = getBlankProperties(dto);
-		for(String s : proArr){
-			System.out.println("s="+s);
-		}
-	}
-	
+
 }
