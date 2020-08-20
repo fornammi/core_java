@@ -1,12 +1,6 @@
 package com.nammi.util.EnDecrypt;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,16 +13,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-
-import freemarker.cache.StringTemplateLoader;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 public class SkeyeUtil {
 	private static final Set<String> cpSet = new HashSet<String>();
@@ -394,21 +380,6 @@ public class SkeyeUtil {
 		strAfterComma = "" + 100 * (fileSize % unitDivisor) / unitDivisor;
 
 		return fileSize / unitDivisor + "." + strAfterComma + " " + strUnit;
-	}
-
-	public static String parseTemplate(String template, Map parameters)
-			throws Exception {
-		if ((template == null) || (template.trim().length() == 0)) {
-			return "";
-		}
-		if ((null == parameters) || (parameters.size() == 0)) {
-			return template;
-		}
-		StringWriter writer = new StringWriter();
-		StringReader reader = new StringReader(template);
-		Template temp = new Template("", reader);
-		temp.process(parameters, writer);
-		return writer.toString();
 	}
 
 	public static String getTimestamp() {

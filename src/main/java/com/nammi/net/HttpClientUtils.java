@@ -1,3 +1,4 @@
+/*
 package com.nammi.net;
 
 import java.io.ByteArrayOutputStream;
@@ -35,13 +36,15 @@ public class HttpClientUtils {
 	private static final String client_secret = "quanyipingtai";
 	private static final String process_status = "normal";
 	
-    /**
+    */
+/**
      * http服务：传递json对象
      * 适用场景：对方不是java环境，比如php，需要参数为json对象
      * @param url
      * @param json
      * @throws Exception
-     */
+     *//*
+
 	public static String httpPostWithJson(String url, JSONObject json) throws Exception{
 		String result = "";
 		CloseableHttpResponse httpResponse = null;
@@ -94,7 +97,8 @@ public class HttpClientUtils {
 	}
 	
 	
-	/**
+	*/
+/**
 	 * post请求：参数为Object
 	 * 适用场景：通用
 	 * requestObj可以为map，jsonStr等等
@@ -102,7 +106,8 @@ public class HttpClientUtils {
 	 * @param requestObj
 	 * @return
 	 * @throws Exception
-	 */
+	 *//*
+
 	public static String doHttpPost(String url, Object requestObj) throws Exception{
 		String requestString = "[]";
 		String result = "";
@@ -162,7 +167,8 @@ public class HttpClientUtils {
 	
 	public static void main(String[] args) {
 		//>>>1.通知商城
-		/*Map<String, String> conMap = new HashMap<String, String>();
+		*/
+/*Map<String, String> conMap = new HashMap<String, String>();
 		String out_trade_no = "201608301303323351000020957";
 		String sign = MD5Utils.string2MD5(out_trade_no+""+process_status+""+client_secret);
 		conMap.put("out_trade_no", out_trade_no);
@@ -198,7 +204,8 @@ public class HttpClientUtils {
 		//3.测试：网金止登录
 		String netUrl = "http://96.7.0.22:80/v1/account/status/freeze";
 		Map<String, String> conMap3 = new HashMap<String, String>();
-		conMap3.put("pwid", "");*/
+		conMap3.put("pwid", "");*//*
+
 		
 		//4.CFCA:ods查询接口
 		String odsUrl_dev="http://192.168.15.157:8081/ods-ws/ws/common/odsQuery";
@@ -223,10 +230,12 @@ public class HttpClientUtils {
 		}
 	}
 	
-	/**
+	*/
+/**
 	 * 解析
 	 * @param jsonStr
-	 */
+	 *//*
+
 	public static List<Map<String,Object>> handleJson(String jsonStr) throws Exception{
 		JSONObject jsonObject = JSONObject.fromObject(jsonStr);
 		Map<String, Object> responseMap = HttpClientUtils.jsonToMap(jsonStr);
@@ -258,3 +267,4 @@ public class HttpClientUtils {
 	}
 	
 }
+*/

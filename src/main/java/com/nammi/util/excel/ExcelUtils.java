@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.nammi.util.file.FileUtils;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -29,7 +30,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.opencsv.CSVReader;
 
-import daniel.java.util.file.FileUtils;
 
 public class ExcelUtils {
 	
@@ -197,7 +197,7 @@ public class ExcelUtils {
 	
 	/**
 	 * csv处理excel,生成多个sql文件
-	 * @param args
+	 * @param
 	 * @throws IOException 
 	 */
 	public static void excel2cvs() throws IOException{
@@ -321,7 +321,7 @@ public class ExcelUtils {
 	 * 反洗钱合规：根据csv生成ctl文件
 	 * 注：excel文件的直接读取，数据量太大容易报错（堆内存溢出）
 	 * main && note
-	 * @param args
+	 * @param
 	 */
 	public void geneMainCtlFile(){
 		//每增加一个批次，计数器加1

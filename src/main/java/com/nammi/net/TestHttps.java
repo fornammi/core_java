@@ -1,3 +1,4 @@
+/*
 package com.nammi.net;
 
 import java.nio.charset.Charset;
@@ -66,3 +67,4 @@ public class TestHttps {
 		
 	}
 }
+*/

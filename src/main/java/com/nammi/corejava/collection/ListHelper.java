@@ -30,7 +30,7 @@ public class ListHelper {
 	
 	/**
 	 * 删除List中的元素：使用iterator
-	 * @param args
+	 * @param intList
 	 */
 	public static void deleteEvenByIt(List intList){
 		Iterator it = intList.iterator();
@@ -47,10 +47,10 @@ public class ListHelper {
 	
 	
 	/**
-	 * List拆分成等个数的subList
+	 * List拆分成固定容量的subList
 	 * @param intList
 	 */
-	public static void splitList(List intList, int split){
+	public static void splitList2(List intList, int split){
 		int listSize = intList.size();
 		int count =  (listSize%split==0) ? (listSize/split) : (listSize/split+1);
 		for(int i=0; i<count; i++){
@@ -69,6 +69,29 @@ public class ListHelper {
 				System.out.print(", "+subList.get(j));
 			}
 			System.out.println();
+		}
+	}
+
+	public static void genSubList(List list, int perSize) {
+
+		int times = list.size() / perSize;
+
+		int cycleIndex = 0;
+
+		while (cycleIndex <= times) {
+			List listTemp = null;
+
+			if (list.size() >= perSize) {
+				listTemp = list.subList(0, perSize);
+			} else {
+				listTemp = list.subList(0, list.size());
+			}
+			System.out.println("listTemp.size="+listTemp.size());
+			list.removeAll(listTemp);
+
+			System.out.println("list.size="+list.size());
+
+			cycleIndex++;
 		}
 	}
 	
@@ -135,12 +158,18 @@ public class ListHelper {
 	
 	public static void main(String[] args) {
 		List intList = new ArrayList();
-		/*
-		for(int i=0; i<100; i++){
+
+		for(int i=0; i<9; i++){
 			intList.add(i);
 		}
-		//deleteEvenInList(intList);
-		//deleteEvenByIt(intList);
+
+		genSubList(intList, 10);
+
+		int times = 39 / 11;
+		System.out.println(times);
+
+		/*deleteEvenInList(intList);
+		deleteEvenByIt(intList);
 		System.out.println(intList.size()+"个元素，每10个一组");
 		splitList(intList, 10);*/
 		
@@ -167,6 +196,6 @@ public class ListHelper {
 		Collections.sort(cntList);
 		System.out.println(cntList.get(0));*/
 		
-		listOpe();
+		//listOpe();
 	}
 }

@@ -9,12 +9,11 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import com.nammi.util.xml.model.Book;
+import com.nammi.util.xml.model.Phone;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
-import daniel.java.util.xml.model.Book;
-import daniel.java.util.xml.model.Phone;
 
 /**
  * 此处可以扩展为泛型接口

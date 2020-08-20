@@ -1,3 +1,4 @@
+/*
 package com.nammi.net;
 
 import java.io.BufferedReader;
@@ -16,11 +17,13 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 
+*/
 /**
  * http服务Server端：需要在web.xml里配置该类
  * @author daniel.fang
  *
- */
+ *//*
+
 public class HttpServerUtils extends HttpServlet {
 	
 	private static final long serialVersionUID = -6023268050469506893L;
@@ -66,3 +69,4 @@ public class HttpServerUtils extends HttpServlet {
 		super.init();
 	}
 }
+*/
